@@ -1,1 +1,316 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ambient background with subtle gradient and noise */
+.ambient-bg {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(38, 38, 38, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(16, 185, 129, 0.03) 0%, transparent 40%),
+    radial-gradient(ellipse at 20% 80%, rgba(245, 158, 11, 0.02) 0%, transparent 40%),
+    #0a0a0a;
+}
+
+/* Subtle noise texture overlay */
+.noise-overlay::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.015;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  z-index: 1000;
+}
+
+/* Glow effects */
+.glow-emerald {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15), 0 0 40px rgba(16, 185, 129, 0.05);
+}
+
+.glow-amber {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.15), 0 0 40px rgba(245, 158, 11, 0.05);
+}
+
+.glow-white {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05), 0 0 40px rgba(255, 255, 255, 0.02);
+}
+
+/* Glowing dots */
+.dot-glow-emerald {
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6), 0 0 16px rgba(16, 185, 129, 0.3);
+}
+
+.dot-glow-amber {
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6), 0 0 16px rgba(245, 158, 11, 0.3);
+}
+
+.dot-glow-neutral {
+  box-shadow: 0 0 6px rgba(115, 115, 115, 0.4);
+}
+
+/* Pulse animation for attention */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse-attention {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Card lift on hover */
+.card-lift {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.2s ease-out,
+              border-color 0.2s ease-out;
+}
+
+.card-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Smooth expand animation */
+@keyframes expand-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-expand {
+  animation: expand-in 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Fade in for content */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.3s ease-out forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+/* Gradient border effect */
+.gradient-border-emerald {
+  position: relative;
+}
+
+.gradient-border-emerald::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(16, 185, 129, 0.05));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.gradient-border-amber {
+  position: relative;
+}
+
+.gradient-border-amber::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0.05));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Logo glow */
+.logo-glow {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1),
+              0 4px 12px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Header gradient line */
+.header-glow::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Widget card inner glow */
+.widget-card {
+  background: linear-gradient(135deg, rgba(38, 38, 38, 0.5), rgba(23, 23, 23, 0.5));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02),
+              0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Status indicator bar */
+.status-bar {
+  background: linear-gradient(90deg,
+    rgba(16, 185, 129, 0.2) 0%,
+    rgba(16, 185, 129, 0.05) 100%
+  );
+}
+
+/* Print styles */
+@media print {
+  /* Hide everything except the report */
+  body > div > header,
+  body > div > main,
+  .noise-overlay::before {
+    display: none !important;
+  }
+
+  /* Reset background for print */
+  body, html, body > div {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Style the modal for print */
+  .fixed.inset-0 {
+    position: static !important;
+    display: block !important;
+  }
+
+  .fixed.inset-0 > .absolute {
+    display: none !important;
+  }
+
+  .fixed.inset-0 > .relative {
+    position: static !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    background: white !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Header styling for print */
+  .fixed.inset-0 h3 {
+    color: black !important;
+    font-size: 18pt !important;
+    border-bottom: 2px solid #333 !important;
+    padding-bottom: 10px !important;
+  }
+
+  /* Hide buttons in print */
+  .fixed.inset-0 button {
+    display: none !important;
+  }
+
+  /* Hide month input in print */
+  .fixed.inset-0 input[type="month"] {
+    display: none !important;
+  }
+
+  .fixed.inset-0 label {
+    display: none !important;
+  }
+
+  /* Style summary cards for print */
+  .fixed.inset-0 .grid {
+    gap: 20px !important;
+  }
+
+  .fixed.inset-0 .grid > div {
+    background: #f5f5f5 !important;
+    border: 1px solid #ddd !important;
+    padding: 15px !important;
+  }
+
+  .fixed.inset-0 .grid > div > div:first-child {
+    color: black !important;
+  }
+
+  .fixed.inset-0 .grid > div > div:last-child {
+    color: #666 !important;
+  }
+
+  /* Style payment items for print */
+  .fixed.inset-0 .space-y-2 > div {
+    background: #fafafa !important;
+    border: 1px solid #eee !important;
+    page-break-inside: avoid;
+  }
+
+  .fixed.inset-0 .space-y-2 span,
+  .fixed.inset-0 .space-y-2 p {
+    color: #333 !important;
+  }
+
+  /* Style workflow badges for print */
+  .fixed.inset-0 .flex.gap-1 > span {
+    border: 1px solid #ccc !important;
+    background: white !important;
+    color: #666 !important;
+  }
+
+  .fixed.inset-0 .flex.gap-1 > span.bg-emerald-500\/20 {
+    background: #d1fae5 !important;
+    color: #065f46 !important;
+    border-color: #a7f3d0 !important;
+  }
+}

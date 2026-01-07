@@ -50,3 +50,7 @@ REDESIGN_PLAN.md
 # Temporary/debug scripts
 debug_*.ps1
 inspect_*.ps1
+
+# Real client data (private)
+app/src/data/clients.json
+clients_data.json

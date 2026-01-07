@@ -1,0 +1,33 @@
+[
+  {
+    "File": "0001-01",
+    "Name": "Sample Client",
+    "FolderLink": "",
+    "Email": "sample@example.com",
+    "NIF": "123456789",
+    "Agent": "Agent Name",
+    "Bank": "Sample Bank",
+    "Source": "Full PM",
+    "Active": true,
+    "RenewalMonth": 1,
+    "Properties": [
+      {
+        "Address": "123 Sample Street, Lisbon",
+        "ServiceType": "Full PM",
+        "Fee": "€100/month",
+        "Invoice": "",
+        "RenewalDate": "2026-01-01",
+        "Condo": "Sample Condo",
+        "CondoContact": "condo@example.com",
+        "CondoPayment": "€50/month",
+        "Insurance": "Sample Insurance",
+        "Tenant": "John Doe",
+        "TenantContact": "john@example.com",
+        "Rent": "€800/month",
+        "LeaseStart": "2025-01-01",
+        "LeaseEnd": "2026-01-01",
+        "Observations": ""
+      }
+    ]
+  }
+]
