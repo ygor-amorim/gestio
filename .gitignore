@@ -38,6 +38,7 @@ CLAUDE.md
 SESSION_ARCHIVE.md
 DESIGN.md
 REDESIGN_PLAN.md
+.claude/
 
 # Original Excel (large binary, keep as backup outside repo)
 *.xlsx
